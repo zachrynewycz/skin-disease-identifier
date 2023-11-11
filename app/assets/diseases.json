@@ -1,0 +1,42 @@
+[
+    {
+        "name": "Cellulitis",
+        "description": " infection that can be caused by bacteria entering a break in the skin, leading to redness, swelling, and tenderness. It often requires antibiotics for treatment",
+        "image_url": "/images/cellulitis.jpeg"
+    },
+    {
+        "name": "Impetigo",
+        "description": "highly contagious skin infection primarily affecting children, characterized by red sores or blisters that burst and form honey-colored crusts. It is caused by bacteria and typically treated with antibiotics",
+        "image_url": "/images/impetigo.jpg"
+    },
+    {
+        "name": "Athlete Foot",
+        "description": "fungal infection that commonly affects the feet, causing itching, redness, and peeling of the skin, often between the toes. It can be treated with over-the-counter antifungal medications and good foot hygiene practices",
+        "image_url": "/images/athlete-foot.jpeg"
+    },
+    {
+        "name": "Nail Fungus",
+        "description": "fungal infection that affects the fingernails or toenails, causing discoloration, thickening, and brittleness. Treatment may involve topical or oral antifungal medications, and in some cases, surgical nail removal",
+        "image_url": "/images/nail-fungus.jpg"
+    },
+    {
+        "name": "Ringworm",
+        "description": "fungal infection that creates a circular, red, and itchy rash on the skin. Despite its name, it's not caused by worms but by fungi. Antifungal creams or oral medications are often used to treat ringworm",
+        "image_url": "/images/ringworm.jpg"
+    },
+    {
+        "name": "Cutaneous Larva Migrans",
+        "description": "parasitic skin infection caused by hookworm larvae burrowing under the skin. This condition results in an itchy, winding rash that appears like tracks on the skin. Treatment typically involves topical or oral medications",
+        "image_url": "/images/cutaneous-larva-migrans.jpeg"
+    },
+    {
+        "name": "Chickenpox",
+        "description": "highly contagious viral infection that causes an itchy skin rash with red spots and blisters. Vaccination is an effective preventive measure. the infection resolves on its own with supportive care",
+        "image_url": "/images/chickenpox.jpg"
+    },
+    {
+        "name": "Shingles",
+        "description": " painful viral infection caused by the reactivation of the varicella-zoster virus. It results in a painful skin rash with blisters, typically appearing on one side of the body. Antiviral medications can help reduce the severity and duration of symptoms",
+        "image_url": "/images/shingles.jpg"
+    }
+]
