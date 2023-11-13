@@ -1,10 +1,15 @@
 "use client";
 import dynamic from "next/dynamic";
+import { usePredictionContext } from "../../context/PredictionContext";
 const ApexChart = dynamic(() => import("react-apexcharts"), { ssr: false });
 
-function StatisticsChart() {
-    const option = {
+function Chart() {
+    const { modelResult } = usePredictionContext();
+    const series = [{ data: modelResult.map((result) => Object.values(result)[0]) }];
+
+    const options = {
         chart: {
+            fontFamily: "Centra-Medium",
             toolbar: {
                 show: false,
             },
@@ -13,16 +18,7 @@ function StatisticsChart() {
             },
         },
         xaxis: {
-            categories: [
-                "Cellulitis",
-                "Impetigo",
-                "Athlete Foot",
-                "Nail Fungus",
-                "Ringworm",
-                "Cutaneous Larva Migrans",
-                "Chickenpox",
-                "Shingles",
-            ],
+            categories: modelResult.map((result) => Object.keys(result)[0]),
             axisBorder: {
                 show: false,
             },
@@ -33,34 +29,34 @@ function StatisticsChart() {
                 show: false,
             },
             labels: {
+                trim: true,
+                rotate: 0,
                 style: {
                     colors: "#a3a3a3",
                     fontSize: "14px",
-                    fontWeight: 400,
                 },
                 offsetX: -2,
+                formatter: function (value: any) {
+                    return value.length > 10 ? value.slice(0, 10) + "..." : value;
+                },
             },
         },
         yaxis: {
+            max: 100,
             labels: {
                 align: "left",
-                minWidth: 0,
-                maxWidth: 140,
+                maxWidth: 150,
                 style: {
                     colors: "#a3a3a3",
-                    fontSize: "13px",
-                    fontWeight: 400,
+                    fontSize: "15px",
                 },
             },
-        },
-        stroke: {
-            width: 0,
         },
         plotOptions: {
             bar: {
                 horizontal: false,
-                columnWidth: "70%",
-                borderRadius: 15,
+                columnWidth: "25%",
+                borderRadius: 10,
                 borderRadiusApplication: "end",
             },
         },
@@ -70,31 +66,21 @@ function StatisticsChart() {
         dataLabels: {
             enabled: false,
         },
-        colors: ["#a3a3a3", "#2563eb"],
+        colors: ["#2563eb"],
         fill: {
             opacity: 1,
         },
         grid: {
             borderColor: "#e5e7eb",
+            strokeDashArray: 10,
         },
     };
 
-    const series = [
-        {
-            name: "1900s",
-            data: [30, 40, 35, 50, 49, 60, 70, 91],
-        },
-        {
-            name: "Today",
-            data: [14000000, 40, 35, 50, 49, 60, 70, 91],
-        },
-    ];
-
     return (
-        <section className="flex justify-center">
-            <ApexChart type="bar" options={option} series={series} height={450} width={800} />
-        </section>
+        <div className="border border-gray-200 shadow-sm rounded-xl px-5 py-5 w-fit">
+            <ApexChart type="bar" options={options} series={series} height={400} width={800} />
+        </div>
     );
 }
 
-export default StatisticsChart;
+export default Chart;

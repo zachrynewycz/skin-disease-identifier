@@ -1,13 +1,12 @@
 import DiseaseList from "./components/DiseaseList";
 import Hero from "./components/Hero";
-import Results from "./components/Results";
-import StatisticsChart from "./components/StatisticsChart";
+import ResultsSection from "./components/Results/ResultsSection";
 
 export default function Home() {
     return (
         <main>
             <Hero />
-            <Results />
+            <ResultsSection />
             <DiseaseList />
         </main>
     );

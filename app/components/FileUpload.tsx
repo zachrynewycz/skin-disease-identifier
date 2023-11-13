@@ -6,6 +6,7 @@ import { usePredictionContext } from "../context/PredictionContext";
 export default function FileUpload() {
     const [uploadedImage, setUploadedImage] = useState<File | null>(null);
     const [uploadedImageUrl, setUploadedImageUrl] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const { setModelResult } = usePredictionContext();
 
     const handleUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -17,6 +18,7 @@ export default function FileUpload() {
 
     const handleSubmit = async () => {
         if (!uploadedImage) return;
+        setIsLoading(true);
 
         const img = document.createElement("img");
         img.src = uploadedImageUrl;
@@ -28,6 +30,7 @@ export default function FileUpload() {
             console.error("An error has occured", error);
         }
 
+        setIsLoading(false);
         setUploadedImage(null);
         setUploadedImageUrl("");
     };
@@ -45,10 +48,13 @@ export default function FileUpload() {
                 disabled={!uploadedImage}
                 className="bg-neutral-800 text-white py-1.5 pt-2 px-6 rounded-md disabled:opacity-50"
             >
-                Process
+                {isLoading ? (
+                    <div className="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-white rounded-full " />
+                ) : (
+                    "Process"
+                )}
             </button>
 
-            {/* <div className="animate-spin inline-block w-6 h-6 border-[3px] border-current border-t-transparent text-white rounded-full " /> */}
             {uploadedImageUrl && <img src={uploadedImageUrl} alt="Uploaded" className="w-28 rounded-md ml-10" />}
         </div>
     );
