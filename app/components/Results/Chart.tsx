@@ -7,7 +7,7 @@ function Chart() {
     const { modelResult } = usePredictionContext();
     const series = [{ data: modelResult.map((result) => Object.values(result)[0]) }];
 
-    const options = {
+    const chart_styling: any = {
         chart: {
             fontFamily: "Centra-Medium",
             toolbar: {
@@ -78,7 +78,7 @@ function Chart() {
 
     return (
         <div className="border border-gray-200 shadow-sm rounded-xl px-5 py-5 w-fit">
-            <ApexChart type="bar" options={options} series={series} height={400} width={800} />
+            <ApexChart type="bar" options={chart_styling} series={series} height={400} width={800} />
         </div>
     );
 }
