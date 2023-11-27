@@ -8,7 +8,7 @@ function ResultsSection() {
                 Your Results
             </h1>
 
-            <div className="flex w-full justify-between">
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 w-full justify-between px-5 lg:px-0">
                 <Results />
                 <Chart />
             </div>
